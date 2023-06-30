@@ -84,6 +84,7 @@ ament_target_dependencies(pcl_ros_tf
 add_library(pcl_ros_filters SHARED
   src/pcl_ros/filters/extract_indices.cpp
   src/pcl_ros/filters/filter.cpp
+  src/pcl_ros/filters/frustum_culling.cpp
   src/pcl_ros/filters/passthrough.cpp
   src/pcl_ros/filters/project_inliers.cpp
   src/pcl_ros/filters/radius_outlier_removal.cpp
@@ -96,6 +97,10 @@ ament_target_dependencies(pcl_ros_filters ${dependencies})
 rclcpp_components_register_node(pcl_ros_filters
   PLUGIN "pcl_ros::ExtractIndices"
   EXECUTABLE filter_extract_indices_node
+)
+rclcpp_components_register_node(pcl_ros_filters
+  PLUGIN "pcl_ros::FrustumCulling"
+  EXECUTABLE filter_frustum_culling_node
 )
 rclcpp_components_register_node(pcl_ros_filters
   PLUGIN "pcl_ros::PassThrough"
