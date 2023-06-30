@@ -70,7 +70,8 @@ protected:
 
 private:
   /** \brief The PCL filter implementation used. */
-  pcl::FrustumCulling<pcl::PointXYZ> impl_;
+  // TODO: I thought using PointXYZRGB would hopefully pass through colour, but our outputted point clouds still seem to be white :(
+  pcl::FrustumCulling<pcl::PointXYZRGB> impl_;
 
 public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
